@@ -5,14 +5,44 @@ const app = express();
 // Defining port for incoming HTTP requests.
 const port = 8080;
 
-
+// Adding middleware to express app for parsing incoming JSON requests
 app.use(express.json());
 
-// Defining the function to calculate flight path
-const calculateFlightPath = (flights) => {
-    // Sample hardcoded flight path
-    flightPath = ['DEL', 'LHR', 'JFK']
-    return flightPath;
+// Function to calculate flight path
+const calculateFlightPath = (all_flights) => {
+
+    // Variable to store flight path
+    const flightsPath = ['DEL', 'LHR', 'JFK'];
+
+    // Return null if there are no flights to process
+    if (!all_flights.length) return null;
+
+    // Maps to store flight pairs (Source->Destination) and (Destination->Source)
+    const originalFlightMap = new Map();
+    const reverseFlightMap = new Map();
+  
+    // Within the loop, each source-destination pair is added to flightMap, and each destination-source pair is added to reverseMap
+    all_flights.forEach(([source, destination]) => {
+        originalFlightMap.set(source, destination);
+        reverseFlightMap.set(destination, source);
+    });
+
+    console.log("Original FlightMap :")
+    console.log(originalFlightMap)
+    console.log("Reverse FlightMap : ")
+    console.log(reverseFlightMap)
+
+    // Calculating the starting airport code of the flight path
+    let startingAirport = null;
+    for (const [source] of originalFlightMap) {
+      if (!reverseFlightMap.has(source)) {
+        startingAirport = source;
+        break;
+      }
+    }
+    console.log("Starting airport : " + startingAirport)
+
+    return flightsPath;
 };
 
 // Defining the calculate endpoint
