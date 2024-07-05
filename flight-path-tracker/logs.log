@@ -1,0 +1,10 @@
+2024-07-05T12:50:52.875Z -  ============ Flight path tracker listening at http://localhost:8080 =========
+2024-07-05T12:50:59.658Z - Starting airport : SFO
+2024-07-05T12:50:59.658Z - Flights Path : SFO,EWR
+2024-07-05T12:50:59.658Z - Boarding and Destination airport codes: SFO,EWR
+2024-07-05T12:51:10.699Z - Starting airport : SFO
+2024-07-05T12:51:10.699Z - Boarding and Destination airport codes: SFO,EWR
+2024-07-05T12:51:10.699Z - Flights Path : SFO,ATL,EWR
+2024-07-05T12:51:14.244Z - Starting airport : SFO
+2024-07-05T12:51:14.244Z - Flights Path : SFO,ATL,GSO,IND,EWR
+2024-07-05T12:51:14.244Z - Boarding and Destination airport codes: SFO,EWR

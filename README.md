@@ -43,7 +43,13 @@ This microservice tracks a person's flight path by sorting through their flight 
 
 4. The server will be running on http://localhost:8080
 
-5. One a new terminal run the below curl command:
+5. One a new terminal to run the test cases using following curl commands:
+```
+curl -X POST http://localhost:8080/calculate -H "Content-Type: application/json" -d '{"all_flights": [["SFO", "EWR"]]}'
+```
+```
+curl -X POST http://localhost:8080/calculate -H "Content-Type: application/json" -d '{"all_flights": [["ATL", "EWR"], ["SFO", "ATL"]]}'
+```
 ```
 curl -X POST http://localhost:8080/calculate -H "Content-Type: application/json" -d '{"all_flights": [["IND", "EWR"], ["SFO", "ATL"], ["GSO", "IND"], ["ATL", "GSO"]]}'
 ```
