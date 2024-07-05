@@ -26,11 +26,6 @@ const calculateFlightPath = (all_flights) => {
     reverseFlightMap.set(destination, source);
   });
 
-  console.log("Original FlightMap :");
-  console.log(originalFlightMap);
-  console.log("Reverse FlightMap : ");
-  console.log(reverseFlightMap);
-
   // Calculating the starting airport code of the flight path
   let startingAirport = null;
   for (const [source] of originalFlightMap) {
@@ -39,17 +34,13 @@ const calculateFlightPath = (all_flights) => {
       break;
     }
   }
-  console.log("Starting airport : " + startingAirport);
 
   // Sorting the flights and calculating the flights path
   let currentAirport = startingAirport;
   while (currentAirport) {
-    console.log("Current Airport: " + currentAirport);
     flightsPath.push(currentAirport);
     currentAirport = originalFlightMap.get(currentAirport);
   }
-  console.log("Flights Path : ");
-  console.log(flightsPath);
 
   return flightsPath;
 };
